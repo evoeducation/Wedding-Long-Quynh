@@ -100,7 +100,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
 .rv.on{opacity:1;transform:translateY(0)}
 
 /* ══ SHARED ══════════════════════════════════ */
-.badge{display:inline-block;font-size:30px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--red);border:1px solid var(--red-muted);padding:5px 18px;border-radius:20px;background:rgba(255,255,255,.75);backdrop-filter:blur(6px)}
+.badge{display:inline-block;font-size:20px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--red);border:1px solid var(--red-muted);padding:5px 18px;border-radius:20px;background:rgba(255,255,255,.75);backdrop-filter:blur(6px)}
 .divline{display:flex;align-items:center;gap:12px;margin:0 auto;max-width:240px}
 .divline::before,.divline::after{content:'';flex:1;height:1px}
 .divline.red::before,.divline.red::after{background:linear-gradient(to right,transparent,var(--red-muted))}
@@ -200,7 +200,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
 
 /* Avatar tròn — object-position: center top để khuôn mặt ở giữa */
 .icard-avatar{
-  width:80px;height:80px;border-radius:50%;
+  width:150px;height:150px;border-radius:50%;
   object-fit:cover;object-position:center top;
   border:2px solid var(--red-muted);
   margin:8px auto 3px;display:block;
@@ -248,9 +248,13 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
 
 /* Slider dạng carousel */
 .slider-wrap{
-  width:100%;max-width:680px;margin-top:12px;
-  position:relative;overflow:hidden;border-radius:14px;
-  box-shadow:0 8px 32px var(--shadow);
+  width: 100%;
+  max-width: 500px; /* Thu hẹp chiều rộng một chút để cân đối với ảnh đứng */
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px var(--shadow);
 }
 .slider-track{
   display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);
