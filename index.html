@@ -561,7 +561,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
     <div class="qcard">
       <div class="qcard-who">🌸 Nhà Gái</div>
       <!-- 💡 Thay bằng <img src="qr-nha-gai.png" width="130" style="border-radius:8px;display:block;margin:0 auto 14px"/> -->
-      <div class="qcard-qr"<img src="QR-nha-gai.jpg" width="130" style="border-radius:8px;display:block;margin:0 auto 14px"/>>
+      <img src="QR-nha-gai.jpg" width="130" style="border-radius:8px;display:block;margin:0 auto 14px"/>
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h2v2h-2zM16 16h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>
         Dán QR nhà gái
       </div>
@@ -685,7 +685,7 @@ function sendRSVP(){
   Giải pháp: nhấn nút ♪ để bật, iframe sẽ play bài hát.
   Dùng YouTube IFrame API để điều khiển play/pause.
 */
-let ytPlayer=null;let ytReady=true;let wantPlay=true;
+let ytPlayer=null;let ytReady=false;let wantPlay=false;
 
 // Load YouTube IFrame API
 const tag=document.createElement('script');
@@ -695,7 +695,7 @@ document.head.appendChild(tag);
 window.onYouTubeIframeAPIReady=function(){
   ytPlayer=new YT.Player('yt-frame',{
     events:{
-      onReady:()=>{ytReady=true;if(wantPlay){ytPlayer.playVideo();}},
+      onReady:()=>{ytReady=true;ytPlayer.playVideo();playing=true;mwave.classList.remove('paused');},
       onStateChange:(e)=>{
         // Khi video kết thúc, phát lại (loop thủ công)
         if(e.data===YT.PlayerState.ENDED)ytPlayer.playVideo();
