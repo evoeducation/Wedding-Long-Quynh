@@ -207,11 +207,14 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   font-family:'Playfair Display',serif;font-style:italic;
   font-size:12px;color:var(--text-soft);line-height:1.9;margin-bottom:12px;
 }
-.icard-bar{width:36px;height:1px;background:var(--red-muted);margin:10px auto}
+.icard-bar{width:30px;height:1px;background:var(--red-muted);margin:10px auto}
 .icard-time{font-family:'Dancing Script',cursive;font-size:28px;color:var(--red);margin-bottom:2px}
 .icard-dstr{font-size:10px;letter-spacing:2px;color:var(--text-soft);margin-bottom:10px}
 .icard-venue{font-size:13px;font-weight:500;color:var(--text-dark);margin-bottom:3px}
 .icard-addr{font-size:11px;color:var(--text-soft);line-height:1.65}
+  /* Ảnh chân dung trong card */
+.icard-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--red-muted);margin:8px auto 4px;display:block}
+.icard-avatar-name{font-family:'Dancing Script',cursive;font-size:16px;color:var(--text-mid);margin-bottom:6px}
 
 /* ══════════════════════════════════════════════
    TRANG 5 — BẢN ĐỒ
@@ -447,6 +450,10 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
       <div class="icard-dstr">Thứ Hai · 18/05/2026</div>
       <div class="icard-venue">Tư gia Nhà Trai</div>
       <div class="icard-addr">Xóm 2, Thôn Đa Hòa<br/>Xã Mễ Sở, Hưng Yên</div>
+      <div class="icard-bar"></div>
+      <!-- 💡 Thay src dưới đây bằng link ảnh chú rể thật -->
+      <img class="icard-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80" alt="Chú rể"/>
+      <div class="icard-avatar-name">Tuấn Long</div>
     </div>
     <!-- NHÀ GÁI -->
     <div class="icard">
@@ -461,6 +468,10 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
       <div class="icard-dstr">Thứ Hai · 18/05/2026</div>
       <div class="icard-venue">Tư gia Nhà Gái</div>
       <div class="icard-addr">Xóm 4, Thôn Đa Hòa<br/>Xã Mễ Sở, Hưng Yên</div>
+      <div class="icard-bar"></div>
+      <!-- 💡 Thay src dưới đây bằng link ảnh cô dâu thật -->
+      <img class="icard-avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=120&q=80" alt="Cô dâu"/>
+      <div class="icard-avatar-name">Hương Quỳnh</div>
     </div>
   </div>
   <div style="margin-top:18px;text-align:center;background:rgba(176,32,32,.07);border:1px solid var(--red-muted);border-radius:12px;padding:14px 20px;max-width:680px;width:100%" class="rv">
