@@ -42,8 +42,11 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   scroll-snap-align:start;scroll-snap-stop:always;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  position:relative;overflow:hidden;padding:28px 20px;
+  position:relative;overflow:hidden;
+  padding:clamp(16px,4vw,28px) clamp(12px,4vw,20px);
 }
+/* Các trang có nhiều nội dung cho phép scroll bên trong */
+#p4,#p5,#p7{overflow-y:auto;justify-content:flex-start;padding-top:clamp(24px,5vw,40px)}
 
 /* ══ PARTICLES ══════════════════════════════════ */
 #pcv{position:fixed;inset:0;pointer-events:none;z-index:0}
@@ -241,13 +244,12 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:8px;width:100%;max-width:680px;margin-top:14px;
 }
-@media(max-width:480px){.ggrid{grid-template-columns:repeat(2,1fr)}}
-.gi{border-radius:10px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:3/4;background:var(--red-muted)}
-.gi:nth-child(1){grid-column:1/3;aspect-ratio:16/9}
-.gi:nth-child(5){grid-column:2/4;aspect-ratio:16/9}
-.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+@media(max-width:480px){.ggrid{grid-template-columns:repeat(2,1fr);gap:5px}}
+/* Tất cả ô đều vuông — tránh ảnh dọc bị cắt xấu */
+.gi{border-radius:8px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1/1;background:var(--red-muted)}
+.gi img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s}
 .gi:hover img{transform:scale(1.07)}
-.gi-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(80,10,10,.45),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:10px}
+.gi-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(80,10,10,.5),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:8px}
 .gi:hover .gi-ov{opacity:1}
 .gi-ov span{color:#fff;font-size:10px;letter-spacing:2px}
 
@@ -345,7 +347,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
   text-align:center;
 }
-.foot-name{font-family:'Dancing Script',cursive;font-size:22px;color:var(--gold);line-height:1.2}
+.foot-name{font-family:'Dancing Script',cursive;font-size:22px;color:var(--gold);line-height:1.2;white-space:nowrap}
 .foot p{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.28);margin-top:2px}
 </style>
 </head>
