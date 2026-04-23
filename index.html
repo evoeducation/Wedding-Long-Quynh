@@ -174,13 +174,13 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   position:relative;overflow:hidden;
 }
 .icard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red-muted),var(--red),var(--red-muted))}
-.icard-side{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:5px}
-.icard-fam{font-family:'Playfair Display',serif;font-style:italic;font-size:11px;color:var(--text-soft);line-height:1.6;margin-bottom:5px}
-.icard-bar{width:24px;height:1px;background:var(--red-muted);margin:5px auto}
-.icard-time{font-family:'Dancing Script',cursive;font-size:clamp(20px,5vw,28px);color:var(--red);margin-bottom:1px}
-.icard-dstr{font-size:9px;letter-spacing:1px;color:var(--text-soft);margin-bottom:4px}
-.icard-venue{font-size:11px;font-weight:500;color:var(--text-dark);margin-bottom:2px}
-.icard-addr{font-size:10px;color:var(--text-soft);line-height:1.5}
+.icard-side{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.icard-fam{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:6px}
+.icard-bar{width:24px;height:1px;background:var(--red-muted);margin:6px auto}
+.icard-time{font-family:'Dancing Script',cursive;font-size:clamp(24px,6vw,34px);color:var(--red);margin-bottom:2px}
+.icard-dstr{font-size:11px;letter-spacing:1px;color:var(--text-soft);margin-bottom:5px}
+.icard-venue{font-size:13px;font-weight:500;color:var(--text-dark);margin-bottom:3px}
+.icard-addr{font-size:12px;color:var(--text-soft);line-height:1.55}
 
 /* Banner lời mời */
 .invite-banner{
@@ -220,9 +220,9 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   display:block;margin:0 auto 10px;
   box-shadow:0 4px 16px var(--shadow);
 }
-.acard-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
-.acard-name{font-family:'Dancing Script',cursive;font-size:clamp(22px,6vw,32px);color:var(--text-dark)}
-.acard-family{font-family:'Playfair Display',serif;font-style:italic;font-size:11px;color:var(--text-soft);line-height:1.65;margin-top:6px}
+.acard-role{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:5px}
+.acard-name{font-family:'Dancing Script',cursive;font-size:clamp(26px,7vw,38px);color:var(--text-dark)}
+.acard-family{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--text-soft);line-height:1.7;margin-top:7px}
 
 /* ══ TRANG 5 — BẢN ĐỒ ══════════════════════ */
 #p5{background:var(--red-pale);z-index:1;gap:12px}
@@ -309,12 +309,71 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
 @media(max-width:440px){.qr-grid{grid-template-columns:1fr;gap:10px}}
 .qcard{background:#fff;border:1px solid var(--red-muted);border-radius:16px;padding:14px 12px;box-shadow:0 5px 22px var(--shadow);text-align:center}
 .qcard-who{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:7px}
-.qcard-qr-link{display:block;margin:0 auto 9px;width:clamp(90px,22vw,130px);height:clamp(90px,22vw,130px);border-radius:10px;overflow:hidden;border:2px solid var(--red-muted);transition:transform .25s,box-shadow .25s;cursor:pointer}
-.qcard-qr-link:hover{transform:scale(1.05);box-shadow:0 6px 18px var(--shadow)}
-.qcard-qr-link img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* QR: bấm để xem + tải ảnh */
+.qcard-qr-btn{
+  display:block;margin:0 auto 6px;
+  width:clamp(90px,22vw,130px);height:clamp(90px,22vw,130px);
+  border-radius:10px;overflow:hidden;border:2px solid var(--red-muted);
+  cursor:pointer;transition:transform .25s,box-shadow .25s;
+  position:relative;
+}
+.qcard-qr-btn:hover{transform:scale(1.05);box-shadow:0 6px 18px var(--shadow)}
+.qcard-qr-btn img{width:100%;height:100%;object-fit:cover;display:block}
+.qcard-qr-btn::after{
+  content:'🔍';
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:22px;background:rgba(176,32,32,.0);transition:background .2s;
+}
+.qcard-qr-btn:hover::after{background:rgba(176,32,32,.15)}
+
+.qcard-dl{
+  display:inline-block;font-size:9px;letter-spacing:1px;color:var(--red);
+  text-decoration:underline;cursor:pointer;margin-bottom:6px;
+  background:none;border:none;font-family:'Be Vietnam Pro',sans-serif;
+}
 .qcard-bank{font-family:'Playfair Display',serif;font-size:11px;color:var(--text-mid);line-height:1.75}
 .qcard-bank strong{display:block;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--text-dark);margin:3px 0}
 .qcard-bank em{font-size:10px;font-style:normal;color:var(--text-soft)}
+
+/* Nút sao chép số TK */
+.copy-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:6px;padding:5px 12px;
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;border:none;border-radius:20px;
+  font-family:'Be Vietnam Pro',sans-serif;font-size:10px;font-weight:500;
+  cursor:pointer;transition:opacity .2s,transform .2s;
+  letter-spacing:1px;
+}
+.copy-btn:hover{opacity:.85;transform:scale(1.04)}
+.copy-btn.copied{background:linear-gradient(135deg,#2a7a2a,#3c9c3c)}
+
+/* Modal xem QR to */
+#qr-modal{
+  display:none;position:fixed;inset:0;z-index:2000;
+  background:rgba(10,2,2,.92);backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;flex-direction:column;gap:16px;
+}
+#qr-modal.open{display:flex}
+#qr-modal img{
+  max-width:85vw;max-height:75vh;border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,.8);
+}
+#qr-modal-close{
+  position:absolute;top:16px;right:20px;
+  color:#fff;font-size:32px;cursor:pointer;background:none;border:none;opacity:.8;
+}
+#qr-modal-close:hover{opacity:1}
+.qr-modal-dl{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 24px;background:var(--red);color:#fff;
+  border-radius:24px;text-decoration:none;
+  font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:500;
+  transition:opacity .2s;
+}
+.qr-modal-dl:hover{opacity:.85}
+#qr-modal-name{color:rgba(255,255,255,.7);font-size:12px;letter-spacing:2px}
 
 /* ══ TRANG 8 — RSVP ════════════════════════ */
 #p8{background:linear-gradient(150deg,#180606 0%,#4a1010 60%,#280808 100%);z-index:1;gap:10px}
@@ -353,15 +412,156 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
 .ty h3{font-family:'Dancing Script',cursive;font-size:34px;color:var(--gold-lt);margin-bottom:8px}
 .ty p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.8}
 
-/* Footer */
-.foot{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);text-align:center}
-.foot-name{font-family:'Dancing Script',cursive;font-size:clamp(16px,4.5vw,22px);color:var(--gold);line-height:1.2;white-space:nowrap}
-.foot p{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.28);margin-top:2px}
+/* ══ HIỆU ỨNG MỞ PHONG BÌ (MÀN HÌNH CHÀO) ══ */
+#envelope-overlay{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,#8b0000 0%,#c0392b 40%,#8b0000 100%);
+  overflow:hidden;
+}
+/* Hoa văn họa tiết nền phong bì */
+#envelope-overlay::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 20%,rgba(255,215,0,.15) 0%,transparent 50%),
+    radial-gradient(circle at 80% 80%,rgba(255,215,0,.12) 0%,transparent 50%);
+}
+
+/* Chữ HỶ trung tâm */
+.env-hy{
+  position:absolute;
+  font-size:clamp(100px,28vw,200px);
+  color:rgba(255,215,0,.9);
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  text-shadow:0 0 40px rgba(255,215,0,.6),0 4px 20px rgba(0,0,0,.4);
+  animation:hy-pulse 1.5s ease-in-out infinite alternate;
+  z-index:2;
+  user-select:none;
+}
+@keyframes hy-pulse{
+  from{text-shadow:0 0 30px rgba(255,215,0,.5),0 4px 20px rgba(0,0,0,.4);transform:scale(1)}
+  to  {text-shadow:0 0 60px rgba(255,215,0,.9),0 4px 20px rgba(0,0,0,.4);transform:scale(1.04)}
+}
+
+/* Nắp phong bì trên */
+.env-flap-top{
+  position:absolute;top:0;left:0;right:0;
+  height:50%;
+  background:linear-gradient(180deg,#7a0000 0%,#b02020 100%);
+  transform-origin:top center;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transition:transform 1s cubic-bezier(.4,0,.2,1),opacity .6s;
+  z-index:3;
+  border-bottom:2px solid rgba(255,215,0,.3);
+}
+.env-flap-top.open{transform:rotateX(-160deg);opacity:0}
+
+/* Nắp phong bì dưới */
+.env-flap-bottom{
+  position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:linear-gradient(0deg,#6a0000 0%,#a01010 100%);
+  clip-path:polygon(0 100%,100% 100%,50% 0%);
+  z-index:1;
+}
+
+/* Nội dung bên trong phong bì */
+.env-content{
+  position:relative;z-index:4;text-align:center;
+  opacity:0;transform:translateY(30px) scale(0.9);
+  transition:opacity .8s .8s,transform .8s .8s;
+  pointer-events:none;
+}
+.env-content.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.env-names-preview{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(32px,10vw,72px);
+  color:#fff;
+  text-shadow:0 2px 20px rgba(0,0,0,.5);
+  line-height:1.1;
+}
+.env-names-preview .env-amp{color:#ffd700;display:block;font-size:clamp(22px,7vw,50px);margin:-4px 0}
+.env-subtitle{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(12px,2.8vw,18px);color:rgba(255,255,255,.8);
+  letter-spacing:3px;margin-top:12px;
+}
+
+/* Nút bấm mở thiệp */
+.env-open-btn{
+  margin-top:28px;padding:12px 32px;
+  background:linear-gradient(135deg,#ffd700,#c9a060,#ffd700);
+  background-size:200% 100%;
+  color:#6a0000;border:none;border-radius:30px;
+  font-family:'Dancing Script',cursive;font-size:clamp(16px,4vw,22px);font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 30px rgba(255,215,0,.3);
+  transition:transform .2s,box-shadow .2s,background-position .4s;
+  animation:btn-glow 2s infinite alternate;
+}
+.env-open-btn:hover{transform:scale(1.06);box-shadow:0 6px 28px rgba(0,0,0,.5),0 0 40px rgba(255,215,0,.5)}
+@keyframes btn-glow{
+  from{box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 20px rgba(255,215,0,.3)}
+  to  {box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 40px rgba(255,215,0,.6)}
+}
+
+/* Trang trí góc hoa văn */
+.env-corner{
+  position:absolute;font-size:clamp(24px,6vw,48px);
+  animation:corner-spin 8s linear infinite;opacity:.7;
+}
+.env-corner:nth-child(1){top:12px;left:14px;animation-direction:normal}
+.env-corner:nth-child(2){top:12px;right:14px;animation-direction:reverse}
+.env-corner:nth-child(3){bottom:12px;left:14px;animation-direction:reverse}
+.env-corner:nth-child(4){bottom:12px;right:14px;animation-direction:normal}
+@keyframes corner-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+/* Hiệu ứng overlay tan biến */
+#envelope-overlay.closing{
+  animation:overlay-close 1.2s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes overlay-close{
+  0%{opacity:1;transform:scale(1)}
+  40%{opacity:1;transform:scale(1.05)}
+  100%{opacity:0;transform:scale(1.15);pointer-events:none}
+}
+
+/* ══ THÊM: Tim & hoa bay Canvas phụ (lớp trên) ══ */
+#pcv2{position:fixed;inset:0;pointer-events:none;z-index:1}
 </style>
 </head>
 <body>
 
-<canvas id="pcv"></canvas>
+<!-- ══ MÀN HÌNH PHONG BÌ CHÀO ════════════════ -->
+<div id="envelope-overlay">
+  <span class="env-corner">✿</span>
+  <span class="env-corner">❀</span>
+  <span class="env-corner">✿</span>
+  <span class="env-corner">❀</span>
+  <div class="env-flap-top" id="env-flap"></div>
+  <div class="env-flap-bottom"></div>
+  <div class="env-hy" id="env-hy">囍</div>
+  <div class="env-content" id="env-content">
+    <div class="env-names-preview">
+      Tuấn Long
+      <span class="env-amp">&amp;</span>
+      Hương Quỳnh
+    </div>
+    <p class="env-subtitle">Trân trọng kính mời</p>
+    <button class="env-open-btn" onclick="openEnvelope()">✦ Mở Thiệp Cưới ✦</button>
+  </div>
+</div>
+
+<!-- Modal xem QR to + tải xuống -->
+<div id="qr-modal">
+  <button id="qr-modal-close" onclick="closeQRModal()">×</button>
+  <p id="qr-modal-name"></p>
+  <img id="qr-modal-img" src="" alt="QR Code"/>
+  <a id="qr-modal-dl" class="qr-modal-dl" download="QR-mung-cuoi.jpg">⬇ Tải ảnh QR xuống</a>
+</div>
+
+<!-- Canvas 2: tim & hoa bay đậm hơn khi mở -->
+<canvas id="pcv2"></canvas>
 
 <iframe id="yt-frame"
   src="https://www.youtube.com/embed/06-XXOTP3Gc?autoplay=1&mute=0&loop=1&playlist=06-XXOTP3Gc&enablejsapi=1"
@@ -583,36 +783,37 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
   <div style="text-align:center" class="rv">
     <span class="sec-lbl" style="color:var(--red)">✦ Mừng cưới ✦</span>
     <h2 class="sec-title" style="color:var(--text-dark)">Gửi Lời Chúc &amp; Quà</h2>
-    <p style="font-size:12px;color:var(--text-soft);margin-top:4px">Bấm vào QR để chuyển khoản nhanh 🙏</p>
+    <p style="font-size:12px;color:var(--text-soft);margin-top:4px">Bấm ảnh QR để xem to &amp; tải xuống 🙏</p>
   </div>
 
   <div class="qr-grid rv">
+    <!-- NHÀ TRAI -->
     <div class="qcard">
       <div class="qcard-who">🎊 Nhà Trai</div>
-      <a class="qcard-qr-link"
-         href="https://dl.vietqr.io/pay?app=mbbank&ba=0912055111&am=0&tn=Mung+cuoi+Tuan+Long"
-         target="_blank" rel="noopener" title="Bấm để mở MB Bank">
+      <!-- Bấm ảnh QR → mở xem to + tải xuống -->
+      <button class="qcard-qr-btn" onclick="openQRModal('QR-nha-trai.jpg','🎊 Nhà Trai — Giang Vũ Tuấn Long')" title="Bấm để xem và tải QR">
         <img src="QR-nha-trai.jpg" alt="QR Nhà Trai"/>
-      </a>
+      </button>
       <div class="qcard-bank">
         <em>MB Bank</em>
-        <strong>0912 055 111</strong>
+        <strong id="stk-trai">0912055111</strong>
         Giang Vũ Tuấn Long
       </div>
+      <button class="copy-btn" onclick="copySTK('stk-trai',this)">📋 Sao chép STK</button>
     </div>
 
+    <!-- NHÀ GÁI -->
     <div class="qcard">
       <div class="qcard-who">🌸 Nhà Gái</div>
-      <a class="qcard-qr-link"
-         href="https://dl.vietqr.io/pay?app=mbbank&ba=9999906112003&am=0&tn=Mung+cuoi+Huong+Quynh"
-         target="_blank" rel="noopener" title="Bấm để mở MB Bank">
+      <button class="qcard-qr-btn" onclick="openQRModal('QR-nha-gai.jpg','🌸 Nhà Gái — Đỗ Hương Quỳnh')" title="Bấm để xem và tải QR">
         <img src="QR-nha-gai.jpg" alt="QR Nhà Gái"/>
-      </a>
+      </button>
       <div class="qcard-bank">
         <em>MB Bank</em>
-        <strong>9999 9061 12003</strong>
+        <strong id="stk-gai">9999906112003</strong>
         Đỗ Hương Quỳnh
       </div>
+      <button class="copy-btn" onclick="copySTK('stk-gai',this)">📋 Sao chép STK</button>
     </div>
   </div>
 
@@ -768,7 +969,8 @@ document.head.appendChild(tag);
 window.onYouTubeIframeAPIReady=function(){
   ytPlayer=new YT.Player('yt-frame',{
     events:{
-      onReady:()=>{ytReady=true;ytPlayer.playVideo();playing=true;mwave.classList.remove('paused');},
+      /* Không tự phát khi load — chờ user bấm mở thiệp */
+      onReady:()=>{ytReady=true;},
       onStateChange:(e)=>{if(e.data===YT.PlayerState.ENDED)ytPlayer.playVideo();}
     }
   });
@@ -778,6 +980,103 @@ mbtn.addEventListener('click',()=>{
   if(playing){ytPlayer.pauseVideo();playing=false;mwave.classList.add('paused');}
   else{ytPlayer.playVideo();playing=true;mwave.classList.remove('paused');}
 });
+
+/* ── 8. CANVAS 2: Tim & hoa tung bay ─────────
+   Chạy riêng, dày hơn, hiển thị trên hết      */
+(()=>{
+  const cv2=document.getElementById('pcv2');
+  if(!cv2)return;
+  const cx2=cv2.getContext('2d');
+  let ps2=[];
+  const SYM2=['♥','❤','✿','❀','🌸','♡'];
+  const COL2=['rgba(176,32,32,.6)','rgba(220,80,80,.55)','rgba(255,100,100,.5)','rgba(255,182,193,.65)','rgba(201,160,96,.5)'];
+  const rz2=()=>{cv2.width=innerWidth;cv2.height=innerHeight};rz2();window.addEventListener('resize',rz2);
+  const sp2=()=>{const s=8+Math.random()*16;return{x:Math.random()*cv2.width,y:-30,size:s,vx:(Math.random()-.5)*.7,vy:.4+Math.random()*.9,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.05,sym:SYM2[Math.random()*SYM2.length|0],col:COL2[Math.random()*COL2.length|0],a:.6+Math.random()*.4,life:1}};
+  for(let i=0;i<20;i++){const p=sp2();p.y=Math.random()*cv2.height;ps2.push(p);}
+  const dr2=()=>{
+    cx2.clearRect(0,0,cv2.width,cv2.height);
+    if(Math.random()<.04)ps2.push(sp2());
+    ps2=ps2.filter(p=>p.y<cv2.height+50);
+    ps2.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.rot+=p.rs;cx2.save();cx2.translate(p.x,p.y);cx2.rotate(p.rot);cx2.globalAlpha=p.a;cx2.font=p.size+'px serif';cx2.fillStyle=p.col;cx2.textAlign='center';cx2.textBaseline='middle';cx2.fillText(p.sym,0,0);cx2.restore();});
+    requestAnimationFrame(dr2);
+  };dr2();
+})();
+
+/* ── 9. PHONG BÌ MỞ THƯ ────────────────────── */
+// Hiện nội dung sau 0.8s cho chữ HỶ hiện trước
+setTimeout(()=>{
+  document.getElementById('env-content').classList.add('show');
+},800);
+
+// Bấm vào bất kỳ đâu trên màn hình phong bì cũng mở được
+document.getElementById('envelope-overlay').addEventListener('click', function(e){
+  openEnvelope();
+});
+let envelopeOpened=false;
+function openEnvelope(){
+  if(envelopeOpened)return;
+  envelopeOpened=true;
+
+  // Mở nắp phong bì
+  document.getElementById('env-flap').classList.add('open');
+
+  // Ẩn chữ HỶ
+  setTimeout(()=>{
+    const hy=document.getElementById('env-hy');
+    hy.style.transition='opacity .5s,transform .5s';
+    hy.style.opacity='0';hy.style.transform='scale(0.5)';
+  },200);
+
+  // Đóng overlay
+  setTimeout(()=>{
+    const ov=document.getElementById('envelope-overlay');
+    ov.classList.add('closing');
+    setTimeout(()=>{
+      ov.style.display='none';
+      // Bật nhạc sau khi mở thiệp (user đã tương tác)
+      if(ytReady&&!playing){
+        ytPlayer.playVideo();playing=true;
+        document.querySelector('.mwave').classList.remove('paused');
+      }
+    },1200);
+  },700);
+}
+
+/* ── 10. QR MODAL — xem + tải xuống ─────────── */
+function openQRModal(src, name){
+  const modal=document.getElementById('qr-modal');
+  const img=document.getElementById('qr-modal-img');
+  const dl=document.getElementById('qr-modal-dl');
+  const nm=document.getElementById('qr-modal-name');
+  img.src=src;
+  dl.href=src;
+  dl.download=src;
+  nm.textContent=name;
+  modal.classList.add('open');
+}
+function closeQRModal(){
+  document.getElementById('qr-modal').classList.remove('open');
+}
+document.getElementById('qr-modal').addEventListener('click',function(e){
+  if(e.target===this)closeQRModal();
+});
+
+/* ── 11. SAO CHÉP SỐ TÀI KHOẢN ─────────────── */
+function copySTK(elId, btn){
+  const txt=document.getElementById(elId).textContent.replace(/\s/g,'');
+  navigator.clipboard.writeText(txt).then(()=>{
+    btn.textContent='✅ Đã sao chép!';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Sao chép STK';btn.classList.remove('copied');},2500);
+  }).catch(()=>{
+    // Fallback cho trình duyệt cũ
+    const ta=document.createElement('textarea');
+    ta.value=txt;document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');document.body.removeChild(ta);
+    btn.textContent='✅ Đã sao chép!';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Sao chép STK';btn.classList.remove('copied');},2500);
+  });
+}
 </script>
 </body>
 </html>
