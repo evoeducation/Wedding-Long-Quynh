@@ -139,6 +139,12 @@ body{
   width:100%;max-width:600px;
 }
 @media(min-width:550px){.info-grid{grid-template-columns:1fr 1fr}}
+@media (max-width: 480px) {
+  /* Ngăn tự động zoom trên iPhone */
+  .fg input, .fg select, .fg textarea {
+    font-size: 16px !important;
+  }
+}
 
 .icard{
   background:#fff;border:1px solid var(--red-muted);border-radius:16px;
@@ -647,7 +653,44 @@ lbEl.addEventListener('click',e=>e.target===lbEl && closeLB());
 
 /* RSVP & QR MODAL & COPY */
 let side='';function pickSide(el,v){document.querySelectorAll('.rl').forEach(l=>l.classList.remove('sel'));el.classList.add('sel');side=v;}
-function sendRSVP(){if(!document.getElementById('r-name').value||!side)return alert('Vui lòng điền tên và chọn nhà!');document.getElementById('rsvp-fields').style.display='none';document.getElementById('ty-msg').classList.add('show');}
+/* Tìm đến hàm sendRSVP và thay thế toàn bộ bằng đoạn này */
+function sendRSVP() {
+  const name = document.getElementById('r-name').value;
+  const guests = document.getElementById('r-guests').value;
+  const wish = document.getElementById('r-wish').value;
+  
+  if (!name || !side || !guests) {
+    alert('Vui lòng điền đầy đủ tên, chọn nhà và số người tham dự!');
+    return;
+  }
+
+  // THAY LINK APPS SCRIPT CỦA BẠN VÀO ĐÂY
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxKDbziIPsElILKIqU0RiAGbpbf0dfgZXnLR96CIWqpTUk4PNHaFEUgXKVvXRX8fuG3/exec';
+
+  // Hiệu ứng đang gửi (tùy chọn)
+  const btn = document.querySelector('.sbtn');
+  btn.textContent = 'ĐANG GỬI...';
+  btn.disabled = true;
+
+  const data = new FormData();
+  data.append('name', name);
+  data.append('side', side);
+  data.append('guests', guests);
+  data.append('wish', wish);
+
+  fetch(scriptURL, { method: 'POST', body: data })
+    .then(response => {
+      // Sau khi gửi thành công, ẩn form và hiện lời cảm ơn
+      document.getElementById('rsvp-fields').style.display = 'none';
+      document.getElementById('ty-msg').classList.add('show');
+    })
+    .catch(error => {
+      console.error('Lỗi!', error.message);
+      alert('Có lỗi xảy ra, vui lòng thử lại sau!');
+      btn.textContent = 'Gửi Xác Nhận ✦';
+      btn.disabled = false;
+    });
+}
 function openQRModal(src,name){const modal=document.getElementById('qr-modal'),img=document.getElementById('qr-modal-img');img.src=src;document.getElementById('qr-modal-dl').href=src;document.getElementById('qr-modal-name').textContent=name;modal.classList.add('open');}
 function closeQRModal(){document.getElementById('qr-modal').classList.remove('open');}
 document.getElementById('qr-modal').addEventListener('click',e=>e.target===document.getElementById('qr-modal') && closeQRModal());
