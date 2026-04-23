@@ -213,12 +213,13 @@ body{
 .slider-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
 .slide {
   flex: 0 0 100%;
-  height: clamp(300px, 60svh, 550px); /* Tối ưu chiều cao trên mobile */
+  height: auto; /* Để chiều cao tự động theo tỉ lệ ảnh */
+  aspect-ratio: 2/3; /* Ép tỉ lệ hình chữ nhật đứng (hoặc 3/4 tùy bạn) */
   position: relative;overflow: hidden;cursor: pointer;
 }
 .slide img {
   width: 100%;height: 100%;object-fit: cover; /* Đảm bảo ảnh đầy khung */
-  object-position: center 20%; /* Ưu tiên khuôn mặt */
+  object-fit: cover; /* Giữ ảnh luôn lấp đầy khung hình chữ nhật */
   display: block;transition: transform .4s;
 }
 .slide:hover img{transform:scale(1.05)}
@@ -664,7 +665,7 @@ function openEnvelope(){
   const hy=document.getElementById('env-hy');hy.style.transition='opacity .3s,transform .3s';hy.style.opacity='0';hy.style.transform='translate(-50%,-50%) scale(0.6)';
   document.getElementById('env-flap').classList.add('open');
   setTimeout(()=>{document.getElementById('env-content').classList.add('show');},600);
-  setTimeout(()=>{const ov=document.getElementById('envelope-overlay');ov.classList.add('closing');setTimeout(()=>{ov.style.display='none';toggleMusic(true);},1000);},1800);
+  setTimeout(()=>{const ov=document.getElementById('envelope-overlay');ov.classList.add('closing');setTimeout(()=>{ov.style.display='none';toggleMusic(true);},1000);},3000);
 }
 </script>
 </body>
