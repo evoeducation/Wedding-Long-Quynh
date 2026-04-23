@@ -249,19 +249,33 @@ body{font-family:'Be Vietnam Pro',sans-serif;font-weight:300;overflow-x:hidden;b
 #p6 .sec-lbl{color:var(--red)}
 #p6 .sec-title{color:var(--text-dark)}
 
-.slider-wrap{
-  width:100%;max-width:480px;
-  position:relative;overflow:hidden;border-radius:14px;
-  box-shadow:0 8px 28px var(--shadow);
-  flex-shrink:1;
+.slider-wrap {
+  width: 100%;
+  max-width: 500px; /* Thu hẹp chiều rộng một chút để cân đối với ảnh đứng */
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px var(--shadow);
 }
 .slider-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
-.slide{
-  flex:0 0 100%;
-  height:clamp(220px,50dvh,400px);
-  position:relative;overflow:hidden;cursor:pointer;
+.slide {
+  flex: 0 0 100%;
+  /* Thay đổi clamp để ưu tiên chiều cao lớn hơn */
+  height: clamp(500px, 80dvh, 750px); 
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
-.slide img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  /* Chế độ này giữ tỉ lệ ảnh và căn giữa để thấy toàn bộ từ đầu đến chân */
+  object-fit: contain; 
+  background: #fdf2f2; /* Thêm nền nhẹ để nếu ảnh không khít khung vẫn đẹp */
+  display: block;
+}
 .slide:hover img{transform:scale(1.04)}
 .slide-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(80,10,10,.55),transparent);padding:10px 14px 8px;color:#fff;font-size:11px;letter-spacing:2px;opacity:0;transition:opacity .3s}
 .slide:hover .slide-caption{opacity:1}
