@@ -43,7 +43,9 @@ body{
 
 /* ══ TẤT CẢ TRANG: đúng 1 màn hình ══ */
 .page{
-  height:100svh;
+  height:100dvh;
+  min-height:100dvh;
+  max-height:100dvh;
   scroll-snap-align:start;
   scroll-snap-stop:always;
   display:flex;
@@ -83,7 +85,7 @@ body{
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
 .rv.on{opacity:1;transform:translateY(0)}
 
-.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:1px solid var(--red-muted);padding:5px 18px;border-radius:20px;background:rgba(255,255,255,.8);backdrop-filter:blur(6px);margin-bottom:6px;}
+.badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:1px solid var(--red-muted);padding:7px 22px;border-radius:20px;background:rgba(255,255,255,.8);backdrop-filter:blur(6px);margin-bottom:14px;}
 .divline{display:flex;align-items:center;gap:12px;margin:6px auto;width:100%;max-width:240px}
 .divline::before,.divline::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--red-muted))}
 .divline.red::after{background:linear-gradient(to left,transparent,var(--red-muted))}
@@ -96,12 +98,12 @@ body{
 #p1{text-align:center;gap:0;background:var(--cream);justify-content:center;}
 .hero-names{
   font-family:'Dancing Script',cursive;
-  font-size:clamp(28px,7vw,58px);
+  font-size:clamp(52px,14vw,96px);
   line-height:1;color:var(--text-dark);
   margin:6px 0;
 }
 .hero-amp{display:block;font-size:clamp(28px,7vw,60px);color:var(--red);margin:-5px 0}
-.hero-date{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,3.5vw,18px);letter-spacing:2px;color:var(--text-mid);margin-top:6px}
+.hero-date{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,4vw,22px);letter-spacing:2px;color:var(--text-mid);margin-top:6px}
 .hero-scroll{
   margin-top:10px;margin-bottom:10px;
   display:flex;flex-direction:column;align-items:center;gap:4px;
@@ -113,18 +115,18 @@ body{
 /* ══ TRANG 2 — LỜI NGỎ ══════════════════════ */
 #p2{background:var(--red-pale);text-align:center}
 .p2-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(12px,3vw,16px);color:var(--text-mid);line-height:1.7;margin:6px 0;}
-.p2-body{font-size:clamp(11px,2.8vw,12px);line-height:1.85;color:var(--text-soft);margin-top:6px;max-width:500px;}
+.p2-body{font-size:clamp(32px,3.5vw,15px);line-height:1.85;color:var(--text-soft);margin-top:14px;max-width:500px;}
 
 /* ══ TRANG 3 — COUNTDOWN ════════════════════ */
 #p3{background:linear-gradient(145deg,#1e0808 0%,#5c1010 50%,#2e0a0a 100%);text-align:center}
-.cd-title{font-family:'Dancing Script',cursive;font-size:clamp(20px,5vw,34px);color:var(--gold-lt);margin-bottom:12px}
+.cd-title{font-family:'Dancing Script',cursive;font-size:clamp(32px,8vw,52px);color:var(--gold-lt);margin-bottom:px}
 .cd-grid{display:flex;justify-content:center;gap:clamp(8px,3.5vw,22px)}
 .cd-item{display:flex;flex-direction:column;align-items:center;gap:6px}
 .cd-num{
-  width:clamp(52px,13vw,72px);height:clamp(52px,13vw,72px);
+  width:clamp(68px,17vw,92px);height:clamp(68px,17vw,92px);
   background:rgba(255,255,255,.05);border:1px solid rgba(176,32,32,.4);
   border-radius:14px;display:flex;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,36px);
+  font-family:'Playfair Display',serif;font-size:clamp(28px,7vw,44px);
   color:var(--gold-lt);letter-spacing:-1px;backdrop-filter:blur(5px);
 }
 .cd-unit{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red-muted)}
@@ -559,7 +561,7 @@ body{
 <section class="page" id="p7">
   <div style="text-align:center" class="rv">
     <span class="sec-lbl" style="color:var(--red)">✦ Mừng cưới ✦</span>
-    <h2 class="sec-title">Gửi Lời Chúc🙏</h2>
+    <h2 class="sec-title">Gửi Lời Chúc</h2>
   </div>
   <div class="qr-grid rv">
     <div class="qcard">
@@ -688,8 +690,9 @@ document.getElementById('qr-modal').addEventListener('click',e=>e.target===docum
 function copySTK(id,btn){const txt=document.getElementById(id).textContent;navigator.clipboard.writeText(txt).then(()=>{btn.textContent='Đã sao chép!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Sao chép';btn.classList.remove('copied')},2000)}); }
 
 /* FIX 3: Về trang đầu khi mở — chạy sau khi DOM ready */
+history.scrollRestoration='manual';
 window.addEventListener('load',()=>{
-  document.getElementById('p1').scrollIntoView({behavior:'instant'});
+  window.scrollTo({top:0,behavior:'instant'});
 });
 
 /* MUSIC PLAYER */
