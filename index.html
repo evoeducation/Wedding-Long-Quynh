@@ -83,7 +83,7 @@ body{
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
 .rv.on{opacity:1;transform:translateY(0)}
 
-.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:1px solid var(--red-muted);padding:5px 18px;border-radius:20px;background:rgba(255,255,255,.8);backdrop-filter:blur(6px);margin-bottom:10px;}
+.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:1px solid var(--red-muted);padding:5px 18px;border-radius:20px;background:rgba(255,255,255,.8);backdrop-filter:blur(6px);margin-bottom:6px;}
 .divline{display:flex;align-items:center;gap:12px;margin:6px auto;width:100%;max-width:240px}
 .divline::before,.divline::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--red-muted))}
 .divline.red::after{background:linear-gradient(to left,transparent,var(--red-muted))}
@@ -93,17 +93,17 @@ body{
 .sec-title{font-family:'Dancing Script',cursive;font-size:clamp(36px,10vw,64px);line-height:1.1;color:var(--text-dark)}
 
 /* ══ TRANG 1 — HERO ══════════════════════════ */
-#p1{text-align:center;gap:0;background:var(--cream)}
+#p1{text-align:center;gap:0;background:var(--cream);justify-content:center;}
 .hero-names{
   font-family:'Dancing Script',cursive;
-  font-size:clamp(34px,9vw,72px);
+  font-size:clamp(28px,7vw,58px);
   line-height:1;color:var(--text-dark);
   margin:6px 0;
 }
 .hero-amp{display:block;font-size:clamp(28px,7vw,60px);color:var(--red);margin:-5px 0}
-.hero-date{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,3.5vw,18px);letter-spacing:2px;color:var(--text-mid);margin-top:10px}
+.hero-date{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,3.5vw,18px);letter-spacing:2px;color:var(--text-mid);margin-top:6px}
 .hero-scroll{
-  margin-top:auto;margin-bottom:16px;
+  margin-top:10px;margin-bottom:10px;
   display:flex;flex-direction:column;align-items:center;gap:4px;
   color:var(--red);font-size:9px;letter-spacing:3px;text-transform:uppercase;
   animation:bob 2s infinite;opacity:.7;
@@ -112,19 +112,19 @@ body{
 
 /* ══ TRANG 2 — LỜI NGỎ ══════════════════════ */
 #p2{background:var(--red-pale);text-align:center}
-.p2-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,3.5vw,18px);color:var(--text-mid);line-height:1.7;margin:10px 0;}
-.p2-body{font-size:clamp(11px,3vw,13px);line-height:1.85;color:var(--text-soft);margin-top:10px;max-width:500px;}
+.p2-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(12px,3vw,16px);color:var(--text-mid);line-height:1.7;margin:6px 0;}
+.p2-body{font-size:clamp(11px,2.8vw,12px);line-height:1.85;color:var(--text-soft);margin-top:6px;max-width:500px;}
 
 /* ══ TRANG 3 — COUNTDOWN ════════════════════ */
 #p3{background:linear-gradient(145deg,#1e0808 0%,#5c1010 50%,#2e0a0a 100%);text-align:center}
-.cd-title{font-family:'Dancing Script',cursive;font-size:clamp(24px,6vw,42px);color:var(--gold-lt);margin-bottom:16px}
+.cd-title{font-family:'Dancing Script',cursive;font-size:clamp(20px,5vw,34px);color:var(--gold-lt);margin-bottom:12px}
 .cd-grid{display:flex;justify-content:center;gap:clamp(8px,3.5vw,22px)}
 .cd-item{display:flex;flex-direction:column;align-items:center;gap:6px}
 .cd-num{
-  width:clamp(56px,14vw,80px);height:clamp(56px,14vw,80px);
+  width:clamp(52px,13vw,72px);height:clamp(52px,13vw,72px);
   background:rgba(255,255,255,.05);border:1px solid rgba(176,32,32,.4);
   border-radius:14px;display:flex;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,44px);
+  font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,36px);
   color:var(--gold-lt);letter-spacing:-1px;backdrop-filter:blur(5px);
 }
 .cd-unit{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red-muted)}
@@ -141,15 +141,15 @@ body{
 }
 .icard{
   background:#fff;border:1px solid var(--red-muted);border-radius:12px;
-  padding:10px 10px 8px;text-align:center;box-shadow:0 4px 14px var(--shadow);
+  padding:14px 12px;text-align:center;box-shadow:0 4px 14px var(--shadow);
   position:relative;overflow:hidden;
 }
 .icard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red-muted),var(--red),var(--red-muted))}
 .icard-side{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
-.icard-fam{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,3vw,12px);color:var(--text-soft);line-height:1.55;margin-bottom:4px}
-.icard-bar{width:24px;height:1px;background:var(--red-muted);margin:5px auto}
-.icard-time{font-family:'Dancing Script',cursive;font-size:clamp(20px,5.5vw,28px);color:var(--red);margin-bottom:2px}
-.icard-venue{font-size:clamp(11px,3.2vw,13px);font-weight:500;color:var(--text-dark);margin-bottom:2px}
+.icard-fam{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,3vw,12px);color:var(--text-soft);line-height:1.55;margin-bottom:8px}
+.icard-bar{width:24px;height:1px;background:var(--red-muted);margin:8px auto}
+.icard-time{font-family:'Dancing Script',cursive;font-size:clamp(20px,5.5vw,28px);color:var(--red);margin-bottom:5px}
+.icard-venue{font-size:clamp(11px,3.2vw,13px);font-weight:500;color:var(--text-dark);margin-bottom:4px}
 .icard-addr{font-size:clamp(9px,2.8vw,11px);color:var(--text-soft);line-height:1.5}
 
 .invite-banner{text-align:center;background:linear-gradient(135deg,rgba(176,32,32,.06),rgba(176,32,32,.1));border:1px solid var(--red-muted);border-radius:10px;padding:8px 14px;width:100%;max-width:600px}
@@ -267,11 +267,12 @@ body{
 #qr-modal-name{color:rgba(255,255,255,.7);font-size:13px;letter-spacing:2px;margin-bottom: 5px;}
 
 /* ══ TRANG 8 — RSVP ══════════════════════════ */
-#p8{background:linear-gradient(150deg,#220a0a 0%,#4a1010 60%,#2e0a0a 100%);gap:15px}
+#p8{background:linear-gradient(150deg,#220a0a 0%,#4a1010 60%,#2e0a0a 100%);gap:8px;overflow:hidden;}
 #p8 .sec-title{color:var(--gold-lt)}
 .rform{
   background:rgba(255,255,255,.06);border:1px solid rgba(176,32,32,.3);
-  border-radius:20px;padding:18px;backdrop-filter:blur(10px);width:100%;max-width:440px;
+  border-radius:20px;padding:12px;backdrop-filter:blur(10px);width:100%;max-width:440px;
+  max-height:80svh;overflow-y:auto;
 }
 .fg{margin-bottom:12px}
 .fg label{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red-muted);margin-bottom:6px}
