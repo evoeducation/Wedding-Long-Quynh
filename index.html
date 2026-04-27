@@ -25,36 +25,30 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-/* Tối ưu cuộn trên mobile, mượt mà hơn */
 html{
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* Cho iOS mượt hơn */
+  overflow-y:auto;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
 }
 body{
   font-family:'Be Vietnam Pro',sans-serif;
   font-weight:300;
   overflow-x:hidden;
   background:var(--cream);
-  color: var(--text-dark);
-  line-height: 1.5;
+  color:var(--text-dark);
+  line-height:1.5;
 }
 
-/* ══ TẤT CẢ TRANG: đúng 1 màn hình ══ */
+/* ══ SECTION: cuộn tự nhiên, padding thoải mái ══ */
 .page{
-  height:100dvh;
-  min-height:100dvh;
-  max-height:100dvh;
-  scroll-snap-align:start;
-  scroll-snap-stop:always;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   position:relative;
   overflow:hidden;
-  padding:12px 14px;
+  padding:48px 20px;
+  min-height:100svh;
 }
 
 /* ══ CANVAS: Hiệu ứng hoa rơi — TỐI ƯU GIẢM LAG ══ */
@@ -95,7 +89,7 @@ body{
 .sec-title{font-family:'Dancing Script',cursive;font-size:clamp(36px,10vw,64px);line-height:1.1;color:var(--text-dark)}
 
 /* ══ TRANG 1 — HERO ══════════════════════════ */
-#p1{text-align:center;gap:0;background:var(--cream);justify-content:center;}
+#p1{text-align:center;gap:0;background:var(--cream);justify-content:center;min-height:100svh;padding:40px 20px;}
 .hero-names{
   font-family:'Dancing Script',cursive;
   font-size:clamp(52px,14vw,96px);
@@ -113,12 +107,12 @@ body{
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
 /* ══ TRANG 2 — LỜI NGỎ ══════════════════════ */
-#p2{background:var(--red-pale);text-align:center}
+#p2{background:var(--red-pale);text-align:center;padding:60px 20px;min-height:auto;}
 .p2-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(12px,3vw,16px);color:var(--text-mid);line-height:1.7;margin:6px 0;}
 .p2-body{font-size:clamp(13px,3.5vw,15px);line-height:1.85;color:var(--text-soft);margin-top:14px;max-width:500px;}
 
 /* ══ TRANG 3 — COUNTDOWN ════════════════════ */
-#p3{background:linear-gradient(145deg,#1e0808 0%,#5c1010 50%,#2e0a0a 100%);text-align:center}
+#p3{background:linear-gradient(145deg,#1e0808 0%,#5c1010 50%,#2e0a0a 100%);text-align:center;min-height:auto;padding:60px 20px;}
 .cd-title{font-family:'Dancing Script',cursive;font-size:clamp(36px,10vw,64px);color:var(--gold-lt);margin-bottom:px}
 .cd-grid{display:flex;justify-content:center;gap:clamp(8px,3.5vw,22px)}
 .cd-item{display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -132,8 +126,9 @@ body{
 .cd-unit{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red-muted)}
 
 /* ══ TRANG 4 — CHƯƠNG TRÌNH ═════════════════ */
-#p4{background:var(--cream);gap:8px;justify-content:flex-start;padding-top:20px;}
+#p4{background:var(--cream);gap:16px;justify-content:center;padding:48px 20px;min-height:auto;}
 .info-grid{
+  display:flex;flex-direction:column;gap:25px;
   width:100%;max-width:460px;
 }
 @media(max-width:400px){.info-grid{grid-template-columns:1fr;gap:6px}}
@@ -141,8 +136,8 @@ body{
   .fg input,.fg select,.fg textarea{font-size:16px!important}
 }
 .icard{
-  background:#fff;border:1px solid var(--red-muted);border-radius:12px;
-  padding:14px 12px;text-align:center;box-shadow:0 4px 14px var(--shadow);
+  background:#fff;border:1px solid var(--red-muted);border-radius:16px;
+  padding:18px 16px;text-align:center;box-shadow:0 4px 14px var(--shadow);
   position:relative;overflow:hidden;
 }
 .icard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red-muted),var(--red),var(--red-muted))}
@@ -158,13 +153,19 @@ body{
 .invite-banner strong{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(12px,3.2vw,15px);color:var(--text-mid);display:block;margin-top:3px}
 
 /* ══ TRANG 4b — NHÂN VẬT CHÍNH ══════════════ */
-#p4b{background:var(--cream);gap:10px;justify-content:flex-start;padding-top:20px;}
+#p4b{background:var(--cream);gap:16px;justify-content:center;padding:48px 20px;min-height:auto;}
 .avatar-grid{
+  display:flex;flex-direction:column;gap:25px;
   width:100%;max-width:440px;
 }
+/* Nằm ngang trên máy tính */
+@media(min-width:768px){
+  .avatar-grid{flex-direction:row;max-width:760px;}
+  .acard{flex:1;}
+}
 .acard{
-  background:#fff;border:1px solid var(--red-muted);border-radius:14px;
-  padding:14px 10px 10px;text-align:center;
+  background:#fff;border:1px solid var(--red-muted);border-radius:16px;
+  padding:20px 14px 16px;text-align:center;
   box-shadow:0 5px 18px var(--shadow);position:relative;overflow:hidden;
 }
 .acard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:linear-gradient(90deg,var(--red-muted),var(--red),var(--red-muted))}
@@ -181,9 +182,66 @@ body{
 .acard-name{font-family:'Dancing Script',cursive;font-size:clamp(22px,6vw,32px);color:var(--text-dark)}
 .acard-family{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,3vw,12px);color:var(--text-soft);line-height:1.6;margin-top:6px}
 
+/* Nút Mừng Cưới trong acard */
+.mc-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:12px;padding:8px 20px;
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;border:none;border-radius:20px;
+  font-family:'Dancing Script',cursive;font-size:16px;
+  cursor:pointer;box-shadow:0 3px 12px var(--shadow);
+  transition:transform .2s,box-shadow .2s;
+}
+.mc-btn:hover{transform:scale(1.05);box-shadow:0 5px 18px var(--shadow);}
+
+/* Modal Mừng Cưới */
+#mc-modal{
+  display:none;position:fixed;inset:0;z-index:2000;
+  background:rgba(10,1,1,.92);backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;flex-direction:column;
+  padding:24px;
+}
+#mc-modal.open{display:flex}
+#mc-modal-close{
+  position:absolute;top:16px;right:20px;
+  color:#fff;font-size:34px;cursor:pointer;
+  background:none;border:none;opacity:.8;line-height:1;
+}
+#mc-modal-close:hover{opacity:1}
+.mc-modal-inner{
+  background:var(--red-pale);border:1px solid var(--red-muted);
+  border-radius:20px;padding:24px 20px;
+  max-width:360px;width:100%;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.mc-modal-title{
+  font-family:'Dancing Script',cursive;font-size:28px;
+  color:var(--red);margin-bottom:16px;
+}
+.mc-modal-who{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-bottom:10px;
+}
+.mc-modal-qr{
+  display:block;margin:0 auto 12px;
+  width:clamp(130px,50vw,180px);height:clamp(130px,50vw,180px);
+  border-radius:12px;overflow:hidden;border:2px solid var(--red-muted);
+  cursor:pointer;transition:transform .25s;background:#fff;
+}
+.mc-modal-qr:hover{transform:scale(1.04)}
+.mc-modal-qr img{width:100%;height:100%;object-fit:contain;display:block;}
+.mc-modal-bank{
+  font-family:'Playfair Display',serif;font-size:13px;
+  color:var(--text-mid);line-height:1.8;margin-bottom:10px;
+}
+.mc-modal-bank strong{
+  display:block;font-family:'Be Vietnam Pro',sans-serif;
+  font-size:17px;letter-spacing:1.5px;color:var(--text-dark);margin:4px 0;
+}
+
 
 /* ══ TRANG 5 — BẢN ĐỒ ══════════════════════ */
-#p5{background:var(--red-pale);gap:15px}
+#p5{background:var(--red-pale);gap:15px;padding:48px 20px;min-height:auto;}
 .maps-grid{display:grid;grid-template-columns:1fr;gap:15px;width:100%;max-width:600px}
 @media(min-width:550px){.maps-grid{grid-template-columns:1fr 1fr}}
 .mcard{background:#fff;border:1px solid var(--red-muted);border-radius:14px;overflow:hidden;box-shadow:0 5px 20px var(--shadow)}
@@ -201,7 +259,7 @@ body{
 .mcard-btn:hover{opacity:.9}
 
 /* ══ TRANG 6 — GALLERY ══════════════════════ */
-#p6{background:var(--cream);gap:10px}
+#p6{background:var(--cream);gap:10px;padding:48px 20px;min-height:auto;}
 .slider-wrap {
   width: 100%;max-width: 480px;margin-top: 15px;
   position: relative;overflow: hidden;
@@ -240,8 +298,21 @@ body{
 
 /* ══ TRANG 7 — MỪNG CƯỚI ════════════════════ */
 #p7{background:var(--red-pale);gap:15px}
-.qr-grid{display:grid;grid-template-columns:1fr;gap:15px;width:100%;max-width:550px}
-@media(min-width:450px){.qr-grid{grid-template-columns:1fr 1fr}}
+/* Mặc định: dọc trên điện thoại */
+.qr-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+  width:100%;
+  max-width:400px;
+}
+/* Nằm ngang trên máy tính (>=768px) */
+@media(min-width:768px){
+  .qr-grid{
+    grid-template-columns:1fr 1fr;
+    max-width:700px;
+  }
+}
 .qcard{background:#fff;border:1px solid var(--red-muted);border-radius:18px;padding:15px;box-shadow:0 6px 25px var(--shadow);text-align:center}
 .qcard-who{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .qcard-qr-btn{
@@ -267,12 +338,11 @@ body{
 #qr-modal-name{color:rgba(255,255,255,.7);font-size:13px;letter-spacing:2px;margin-bottom: 5px;}
 
 /* ══ TRANG 8 — RSVP ══════════════════════════ */
-#p8{background:linear-gradient(150deg,#220a0a 0%,#4a1010 60%,#2e0a0a 100%);gap:8px;overflow:hidden;}
+#p8{background:linear-gradient(150deg,#220a0a 0%,#4a1010 60%,#2e0a0a 100%);gap:24px;padding:60px 20px;min-height:auto;}
 #p8 .sec-title{color:var(--gold-lt)}
 .rform{
   background:rgba(255,255,255,.06);border:1px solid rgba(176,32,32,.3);
-  border-radius:20px;padding:12px;backdrop-filter:blur(10px);width:100%;max-width:440px;
-  max-height:80svh;overflow-y:auto;
+  border-radius:20px;padding:24px;backdrop-filter:blur(10px);width:100%;max-width:440px;
 }
 .fg{margin-bottom:12px}
 .fg label{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red-muted);margin-bottom:6px}
@@ -410,11 +480,6 @@ body{
 <canvas id="pcv2"></canvas>
 <canvas id="pcv"></canvas>
 
-<iframe id="yt-frame"
-  src="https://www.youtube.com/embed/06-XXOTP3Gc?autoplay=1&mute=0&loop=1&playlist=06-XXOTP3Gc&enablejsapi=1"
-  allow="autoplay; encrypted-media" allowfullscreen>
-</iframe>
-
 <button id="music-btn" title="Bật/tắt nhạc">
   <div class="mwavePaused:pausedpausedpausedpausedPaused mwave"><span class="mwave-1Paused:pausedpausedpausedpausedPaused"></span><span class="mwave-2Paused:pausedpausedpausedpausedPaused"></span><span class="mwave-3Paused:pausedpausedpausedpausedPaused"></span><span class="mwave-4Paused:pausedpausedpausedpausedPaused"></span></div>
 </button>
@@ -442,7 +507,7 @@ body{
       <strong style="color:var(--text-mid)">Giang Vũ Tuấn Long</strong> và
       <strong style="color:var(--text-mid)">Đỗ Hương Quỳnh</strong>
       — trân trọng kính mời quý khách đến chung vui trong ngày trọng đại.<br/>
-      Sự hiện diện của bạn là món quà ý nghĩa nhất! 🙏
+      Sự hiện diện của bạn là món quà ý nghĩa nhất!
     </p>
   </div>
 </section>
@@ -473,6 +538,7 @@ body{
       <div class="cd-unit" style="color:var(--text-soft);margin-bottom:5px">Thứ Hai · 18/05/2026</div>
       <div class="icard-venue">Tư gia Nhà Trai</div>
       <div class="icard-addr">Xóm 2, Đa Hòa, Mễ Sở, Hưng Yên</div>
+      <button class="mc-btn" onclick="openMCModal('trai')">🎁 Mừng Cưới</button>
     </div>
     <div class="icard">
       <div class="icard-side">🌸 Nhà Gái</div>
@@ -482,12 +548,13 @@ body{
       <div class="cd-unit" style="color:var(--text-soft);margin-bottom:5px">Thứ Hai · 18/05/2026</div>
       <div class="icard-venue">Tư gia Nhà Gái</div>
       <div class="icard-addr">Xóm 4, Đa Hòa, Mễ Sở, Hưng Yên</div>
+      <button class="mc-btn" onclick="openMCModal('gai')">🎁 Mừng Cưới</button>
     </div>
   </div>
-  <div class="invite-banner rv">
+  <!-- <div class="invite-banner rv">
     <p>Trân trọng mời bạn tham dự tiệc chung vui cùng gia đình</p>
     <strong>Ngày 17 · 05 · 2026  —  18:00 tối</strong>
-  </div>
+  </div> -->
 </section>
 
 <section class="page" id="p4b">
@@ -499,17 +566,37 @@ body{
     <div class="acard">
       <div class="acard-role">🎊 Chú Rể</div>
       <img class="acard-img" src="CR.jpg" alt="Chú rể"/>
-      <div class="acard-name">Tuấn Long</div>
+      <div class="acard-name">Giang Vũ Tuấn Long</div>
       <div class="acard-family">Bố: Giang Văn Dân<br/>& Mẹ: Vũ Thị Thúy Hà</div>
+      <button class="mc-btn" onclick="openMCModal('trai')">🎁 Mừng Cưới</button>
     </div>
     <div class="acard">
       <div class="acard-role">🌸 Cô Dâu</div>
       <img class="acard-img" src="CD.jpg" alt="Cô dâu"/>
-      <div class="acard-name">Hương Quỳnh</div>
+      <div class="acard-name">Đỗ Hương Quỳnh</div>
       <div class="acard-family">Bố: Đỗ Đức Dũng<br/>& Mẹ: Nguyễn Thị Thơ</div>
+      <button class="mc-btn" onclick="openMCModal('gai')">🎁 Mừng Cưới</button>
     </div>
   </div>
 </section>
+
+<!-- Modal Mừng Cưới -->
+<div id="mc-modal">
+  <button id="mc-modal-close" onclick="closeMCModal()">×</button>
+  <div class="mc-modal-inner">
+    <div class="mc-modal-title">💝 Mừng Cưới</div>
+    <div class="mc-modal-who" id="mc-modal-who"></div>
+    <button class="mc-modal-qr" id="mc-modal-qr-btn" onclick="openQRModal('','')">
+      <img id="mc-modal-qr-img" src="" alt="QR"/>
+    </button>
+    <div class="mc-modal-bank">
+      <em id="mc-modal-bank-name"></em>
+      <strong id="mc-modal-stk"></strong>
+      <span id="mc-modal-owner"></span>
+    </div>
+    <button class="copy-btn" id="mc-modal-copy-btn" onclick="copyMCSTK()">📋 Sao chép STK</button>
+  </div>
+</div>
 
 <section class="page" id="p5">
   <div style="text-align:center" class="rv">
@@ -556,30 +643,6 @@ body{
   <button id="lb-next" onclick="lbMove(1)">›</button>
 </div>
 
-<section class="page" id="p7">
-  <div style="text-align:center" class="rv">
-    <span class="sec-lbl" style="color:var(--red)">✦ Mừng cưới ✦</span>
-    <h2 class="sec-title">Gửi Lời Chúc</h2>
-  </div>
-  <div class="qr-grid rv">
-    <div class="qcard">
-      <div class="qcard-who">🎊 Nhà Trai</div>
-      <button class="qcard-qr-btn" onclick="openQRModal('QR-trai.jpg','Giang Vũ Tuấn Long')">
-        <img src="QR-nha-trai.jpg" alt="QR Trai"/>
-      </button>
-      <div class="qcard-bank"><em>MB Bank</em><strong id="stk-trai">0912055111</strong>Giang Vũ Tuấn Long</div>
-      <button class="copy-btn" onclick="copySTK('stk-trai',this)">📋 Sao chép</button>
-    </div>
-    <div class="qcard">
-      <div class="qcard-who">🌸 Nhà Gái</div>
-      <button class="qcard-qr-btn" onclick="openQRModal('QR-gai.jpg','Đỗ Hương Quỳnh')">
-        <img src="QR-nha-gai.jpg" alt="QR Gai"/>
-      </button>
-      <div class="qcard-bank"><em>MB Bank</em><strong id="stk-gai">9999906112003</strong>Đỗ Hương Quỳnh</div>
-      <button class="copy-btn" onclick="copySTK('stk-gai',this)">📋 Sao chép</button>
-    </div>
-  </div>
-</section>
 
 <section class="page" id="p8">
   <div style="text-align:center" class="rv"><span class="sec-lbl" style="color:var(--red-muted)">✦ Xác nhận ✦</span><h2 class="sec-title" style="color:var(--gold-lt)">Bạn Sẽ Đến Chứ?</h2></div>
@@ -645,47 +708,70 @@ lbEl.addEventListener('click',e=>e.target===lbEl && closeLB());
 /* RSVP & QR MODAL & COPY */
 let side='';function pickSide(el,v){document.querySelectorAll('.rl').forEach(l=>l.classList.remove('sel'));el.classList.add('sel');side=v;}
 /* Tìm đến hàm sendRSVP và thay thế toàn bộ bằng đoạn này */
-function sendRSVP() {
-  const name = document.getElementById('r-name').value;
-  const guests = document.getElementById('r-guests').value;
-  const wish = document.getElementById('r-wish').value;
-  
-  if (!name || !side || !guests) {
-    alert('Vui lòng điền đầy đủ tên, chọn nhà và số người tham dự!');
+function sendRSVP(){
+  const name=document.getElementById('r-name').value.trim();
+  const guests=document.getElementById('r-guests').value;
+  const wish=document.getElementById('r-wish').value.trim();
+  if(!name||!side||!guests){
+    alert('Vui lòng điền đầy đủ tên, chọn nhà và số người!');
     return;
   }
+  const btn=document.querySelector('.sbtn');
+  btn.textContent='ĐANG GỬI...';
+  btn.disabled=true;
 
-  // THAY LINK APPS SCRIPT CỦA BẠN VÀO ĐÂY
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyx6tOcdYhg3o7GxidnR2vC1UgdKYDF9XqywX1Z74ipuaVXZ7j1yq0XEBp80n4FvPp0/exec';
+  const SHEETS_URL='https://script.google.com/macros/s/AKfycbxqFg9Pjz1Z6Wfd1GBOJzh4Gs9FFCnq84el_Y6VINUZjsGGEgEXMjXv8WtYgMojHEMl/exec';
 
-  // Hiệu ứng đang gửi (tùy chọn)
-  const btn = document.querySelector('.sbtn');
-  btn.textContent = 'ĐANG GỬI...';
-  btn.disabled = true;
+  // Gửi dạng URL params — luôn hoạt động với no-cors
+  const params=new URLSearchParams({name,side,guests,wish});
 
-  const data = new FormData();
-  data.append('name', name);
-  data.append('side', side);
-  data.append('guests', guests);
-  data.append('wish', wish);
-
-  fetch(scriptURL, { method: 'POST', body: data })
-    .then(response => {
-      // Sau khi gửi thành công, ẩn form và hiện lời cảm ơn
-      document.getElementById('rsvp-fields').style.display = 'none';
-      document.getElementById('ty-msg').classList.add('show');
-    })
-    .catch(error => {
-      console.error('Lỗi!', error.message);
-      alert('Có lỗi xảy ra, vui lòng thử lại sau!');
-      btn.textContent = 'Gửi Xác Nhận ✦';
-      btn.disabled = false;
-    });
+  fetch(SHEETS_URL,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:params.toString()
+  })
+  .then(()=>{
+    document.getElementById('rsvp-fields').style.display='none';
+    document.getElementById('ty-msg').classList.add('show');
+  })
+  .catch(()=>{
+    btn.textContent='Gửi Xác Nhận ✦';
+    btn.disabled=false;
+    alert('Lỗi kết nối, thử lại!');
+  });
 }
 function openQRModal(src,name){const modal=document.getElementById('qr-modal'),img=document.getElementById('qr-modal-img');img.src=src;document.getElementById('qr-modal-name').textContent=name;modal.classList.add('open');}
 function closeQRModal(){document.getElementById('qr-modal').classList.remove('open');}
 document.getElementById('qr-modal').addEventListener('click',e=>e.target===document.getElementById('qr-modal') && closeQRModal());
 function copySTK(id,btn){const txt=document.getElementById(id).textContent;navigator.clipboard.writeText(txt).then(()=>{btn.textContent='Đã sao chép!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Sao chép';btn.classList.remove('copied')},2000)}); }
+
+/* MODAL MỪNG CƯỚI từ trang nhân vật chính */
+const MC_DATA={
+  trai:{who:'🎊 Chú Rể — Giang Vũ Tuấn Long',qr:'QR-nha-trai.jpg',bank:'MB Bank',stk:'0912055111',owner:'Giang Vũ Tuấn Long'},
+  gai: {who:'🌸 Cô Dâu — Đỗ Hương Quỳnh',   qr:'QR-nha-gai.jpg', bank:'MB Bank',stk:'9999906112003',owner:'Đỗ Hương Quỳnh'}
+};
+function openMCModal(side){
+  const d=MC_DATA[side];
+  document.getElementById('mc-modal-who').textContent=d.who;
+  const qrImg=document.getElementById('mc-modal-qr-img');
+  qrImg.src=d.qr;
+  document.getElementById('mc-modal-qr-btn').onclick=()=>openQRModal(d.qr,d.owner);
+  document.getElementById('mc-modal-bank-name').textContent=d.bank;
+  document.getElementById('mc-modal-stk').textContent=d.stk;
+  document.getElementById('mc-modal-owner').textContent=d.owner;
+  document.getElementById('mc-modal').classList.add('open');
+}
+function closeMCModal(){document.getElementById('mc-modal').classList.remove('open');}
+document.getElementById('mc-modal').addEventListener('click',e=>{if(e.target===document.getElementById('mc-modal'))closeMCModal();});
+function copyMCSTK(){
+  const stk=document.getElementById('mc-modal-stk').textContent;
+  const btn=document.getElementById('mc-modal-copy-btn');
+  navigator.clipboard.writeText(stk).then(()=>{
+    btn.textContent='✅ Đã sao chép!';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Sao chép STK';btn.classList.remove('copied');},2000);
+  });
+}
 
 /* FIX 3: Về trang đầu khi mở — chạy sau khi DOM ready */
 history.scrollRestoration='manual';
@@ -694,18 +780,39 @@ window.addEventListener('load',()=>{
 });
 
 /* MUSIC PLAYER */
-let ytPlayer=null,ytReady=false,playing=false;
-const tag=document.createElement('script');tag.src='https://www.youtube.com/iframe_api';document.head.appendChild(tag);
-window.onYouTubeIframeAPIReady=()=>{ytPlayer=new YT.Player('yt-frame',{events:{onReady:()=>ytReady=true}});}
-function toggleMusic(p){if(!ytReady)return;if(p){ytPlayer.playVideo();document.querySelector('.mwave').classList.remove('paused');}else{ytPlayer.pauseVideo();document.querySelector('.mwave').classList.add('paused');}playing=p;}
-document.getElementById('music-btn').addEventListener('click',()=>toggleMusic(!playing));
+const audio = new Audio('Beautiful In White.mp3');
+audio.loop = true;
+audio.volume = 0.5;
+
+function playMusic(){
+  audio.play().catch(()=>{});
+  document.querySelector('.mwave').classList.remove('paused');
+}
+function pauseMusic(){
+  audio.pause();
+  document.querySelector('.mwave').classList.add('paused');
+}
+
+document.getElementById('music-btn').onclick = () => {
+  audio.paused ? playMusic() : pauseMusic();
+};
 
 /* PHONG BÌ MỞ THƯ */
 function openEnvelope(){
-  const hy=document.getElementById('env-hy');hy.style.transition='opacity .3s,transform .3s';hy.style.opacity='0';hy.style.transform='translate(-50%,-50%) scale(0.6)';
+  /* Phát nhạc ngay khi bấm — user đã tương tác nên iOS cho phép */
+  playMusic();
+
+  const hy=document.getElementById('env-hy');
+  hy.style.transition='opacity .3s,transform .3s';
+  hy.style.opacity='0';
+  hy.style.transform='translate(-50%,-50%) scale(0.6)';
   document.getElementById('env-flap').classList.add('open');
   setTimeout(()=>{document.getElementById('env-content').classList.add('show');},600);
-  setTimeout(()=>{const ov=document.getElementById('envelope-overlay');ov.classList.add('closing');setTimeout(()=>{ov.style.display='none';toggleMusic(true);},1000);},3000);
+  setTimeout(()=>{
+    const ov=document.getElementById('envelope-overlay');
+    ov.classList.add('closing');
+    setTimeout(()=>{ov.style.display='none';},1000);
+  },3000);
 }
 </script>
 </body>
